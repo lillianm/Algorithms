@@ -7,6 +7,7 @@ public class Vertex {
 	public int value;
 	public ArrayList<Edge> edges;
 	public int dist;
+	public Vertex precedent = null;
 	
 	public Vertex(int id){
 		this.id = id;

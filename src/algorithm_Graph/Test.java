@@ -21,6 +21,7 @@ public class Test {
 			for(int i = 0;i<edges.length;i++){
 				int n1 = edges[i][0];
 				int n2 = edges[i][1];
+				int weight = edges[i].length <3? 1:edges[i][2];
 				Vertex v1 = null;
 				Vertex v2 = null;
 				for(Vertex v:nodes){
@@ -30,7 +31,7 @@ public class Test {
 				}
 				if(v1 == null){v1 = new Vertex(n1); nodes.add(v1);}
 				if(v2 == null){v2 = new Vertex(n2); nodes.add(v2);}
-				Edge edge = new Edge(v1,v2);
+				Edge edge = new Edge(v1,v2,weight);
 				v1.edges.add(edge);
 				v2.edges.add(edge);
 				es.add(edge);

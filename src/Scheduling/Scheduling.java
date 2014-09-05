@@ -66,8 +66,10 @@ public class Scheduling {
 		return result;
 	}
 	
+	/* Greedy Algorithm */
 	public static int scheduleAll(ArrayList<Interval> intervals){
 		ArrayList<ArrayList<Interval>> rooms = new ArrayList<ArrayList<Interval>>();
+		/* Sort by start time */
 		Collections.sort(intervals, new Comparator<Interval>(){
 
 			@Override
