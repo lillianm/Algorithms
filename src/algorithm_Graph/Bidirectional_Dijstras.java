@@ -34,10 +34,11 @@ public class Bidirectional_Dijstras {
 		pq_source.add(source);
 		pq_target.add(target);
 		boolean found = false;
+		
 		/* Apply Single Dijstras Algorithm iteratively from source and target
 		 * Stop when any node exist in both Dijstras set */
 		while(!found && set_source.size() + set_target.size() < N){
-
+			/* Dijstra from source */
 			Vertex v1 = pq_source.poll();
 
 			for(Edge e:v1.edges){
@@ -54,7 +55,7 @@ public class Bidirectional_Dijstras {
 				set_source.add(t1);
 				pq_source.add(t1);
 			}
-
+			/* Dijstra from target */
 			Vertex v2 = pq_target.poll();
 			for(Edge e:v2.edges){
 				Vertex t2 = e.getTarget(v2);
@@ -88,7 +89,7 @@ public class Bidirectional_Dijstras {
 				}
 			}
 		}
-		reconstructPath(bridge, set_source, set_target);
+		printPath(reconstructPath(bridge, set_source, set_target));
 		return minPath;
 	}
 	/* reconstruct the path from source to target */
@@ -107,8 +108,13 @@ public class Bidirectional_Dijstras {
 		return path;
 	}
 	
+	public static void printPath(ArrayList<Vertex> path){
+		for(Vertex v:path){
+			System.out.println(v.id);
+		}
+	}
 	/* Uncomment for Unit Test */
-	/*
+	
 	public static void main(String[] args){
 
 		Factory factory = new Factory();
@@ -126,5 +132,5 @@ public class Bidirectional_Dijstras {
 		//calculate Dijstras shortestPath
 		System.out.println(Bidirectional_Dijstras.bidirect_dijstras(v1, v9, vertices, es));
 	}
-	*/
+	
 }

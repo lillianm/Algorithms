@@ -16,6 +16,7 @@ public class Test {
 			return vs;
 		}
 		
+		/* Building Edge from an array with 2 elements(default weight is 1) or 3 elements(customized weight) */
 		public ArrayList<Edge> buildEdge(int[][] edges,Set<Vertex> nodes){
 			ArrayList<Edge> es = new ArrayList<Edge>();
 			for(int i = 0;i<edges.length;i++){
@@ -62,6 +63,7 @@ public class Test {
 			}
 
 		} catch (GraphException e){}
-			}
+		}
+	
 	
 }
