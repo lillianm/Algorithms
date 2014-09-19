@@ -7,6 +7,8 @@ public class Vertex {
 	public int value;
 	public ArrayList<Edge> edges;
 	public int dist;
+	public int heuristic;
+	public int depth;
 	public Vertex precedent = null;
 	
 	public Vertex(int id){
@@ -14,6 +16,7 @@ public class Vertex {
 		this.value = id;
 		edges = new ArrayList<Edge>();
 		dist = Integer.MAX_VALUE;
+		heuristic = 0;
 	}
 
 	@Override

@@ -15,7 +15,17 @@ public class Test {
 			}
 			return vs;
 		}
-		
+		public Set<Vertex> buildVertex(int[] nodes, int[] heuristics){
+			Set<Vertex> vs = new HashSet<Vertex>();
+			for(int i = 0;i<nodes.length;i++){
+				Vertex nv = new Vertex(nodes[i]);
+				nv.heuristic = heuristics[i];
+				vs.add(nv);
+				
+			}
+			return vs;
+		}
+
 		/* Building Edge from an array with 2 elements(default weight is 1) or 3 elements(customized weight) */
 		public ArrayList<Edge> buildEdge(int[][] edges,Set<Vertex> nodes){
 			ArrayList<Edge> es = new ArrayList<Edge>();
