@@ -4,6 +4,13 @@ import java.util.HashMap;
 import java.util.HashSet;
 
 public class Transaction{
+	/*
+	 * @param originMap is the original <key, value> pair if the pair is modified in the current transaction 
+	 * @param originInverseCount is the original <value, count> pair if the current modification change the value 
+	 * @param newMap is the newly added <key, value> pair in this block that does not exist in original db
+	 *  (actually only need a hashset here hashmap can be extended to rollback any commond in the future 
+	 * @param newInverseCnt is the newly added value that does not exist in original db
+	 * */
 	public HashMap<String, Integer> originMap;
 	public HashMap<Integer, Integer> originInverseCnt;
 	public HashMap<String, Integer> newMap;

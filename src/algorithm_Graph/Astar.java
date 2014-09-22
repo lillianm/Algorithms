@@ -79,7 +79,7 @@ public class Astar {
 		int[] nodes = {1,2,3,4,5,6,7,8,9,10};
 		int[] heuristics = {7,100,2,3,5,6,1,1,19,10};
 		int[][] edges = {{1,2},{2,3},{3,6},{3,4},{4,5},{3,5},{2,6},{5,7},{6,9},{9,8},{7,9}};
-		
+		s
 		Set<Vertex> vertices = factory.buildVertex(nodes, heuristics);
 		ArrayList<Edge> es = factory.buildEdge(edges, vertices);
 		/* get the source node*/

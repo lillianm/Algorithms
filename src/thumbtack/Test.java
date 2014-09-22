@@ -2,6 +2,7 @@ package thumbtack;
 import java.util.Scanner;
 
 public class Test {
+	@SuppressWarnings("resource")
 	public static void main(String[] args){
 		Scanner in = new Scanner(System.in);
 		DatabaseWrapper db = new DatabaseWrapper();
