@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
+
 	public static boolean DEBUG = false;
+
 	public static void main(String[] args){
 		Scanner in = new Scanner(System.in);
 		System.out.println("Please Select Input Mode (type 0/1): \n STDIN: 0; Read from test file: 1");
@@ -16,7 +18,7 @@ public class Main {
 		DEBUG = Integer.parseInt(in.nextLine()) ==1?true:false;
 
 		if(mode == 0){
-
+			System.out.println("Let's get started!");
 			while(in.hasNext()){
 				parseHelper(db, in.nextLine());
 			}
@@ -41,8 +43,11 @@ public class Main {
 
 		}
 	}
+	/* parse input lines*/
 	public static void parseHelper(DatabaseWrapper db, String input){
+		/* remove the comment from test file */
 		input = input.replaceAll("(?:/\\*(?:[^*]|(?:\\*+[^*/]))*\\*+/)|(?://.*)","").trim().toUpperCase();
+
 		switch(input){
 		case "BEGIN": db.beginNewTransaction(); break;
 		case "END": db.exit(0); break;
@@ -87,6 +92,4 @@ public class Main {
 			}
 		}
 	}
-
-
 }

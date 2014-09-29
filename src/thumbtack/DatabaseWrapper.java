@@ -5,9 +5,9 @@ import java.util.Stack;
 public class DatabaseWrapper {
 	/*
 	 * All modification are done in the database object.
-	 * @currentTransaction is the current block of between the nearst "BEGIN" and "END" 
+	 * @param currentTransaction is the current block of between the nearst "BEGIN" and "END" 
 	 * all modifications in this block are stored in the Transaction object, saved for rollback
-	 * @transactions is a stack to hold all nested Blocks */
+	 * @param transactions is a stack to hold all nested Blocks */
 	public static Database database;
 	private Stack<Transaction> transactions;
 	private Transaction currentTransaction;
@@ -17,6 +17,7 @@ public class DatabaseWrapper {
 		transactions = new Stack<Transaction>();
 		currentTransaction = null;
 	}
+	
 	/* push currentTransaction and open a new one */
 	public void beginNewTransaction(){
 		if(currentTransaction!=null){
@@ -26,7 +27,8 @@ public class DatabaseWrapper {
 		if(Main.DEBUG) System.out.println(transactions.size());
 
 	}
-	/* revert all changes in the currentTransaction */
+	
+	/* revert all changes in the currentTransaction and pop the previous transaction */
 	public void rollback(){
 		if(currentTransaction == null){
 			System.out.println("NO TRANSACTION");
@@ -36,6 +38,7 @@ public class DatabaseWrapper {
 			currentTransaction = transactions.isEmpty()?null:transactions.pop();
 		}
 	}
+	
 	/* commit should commit all the transactions, just clear the stack and currentTransaction */
 	public void commit(){
 		if(currentTransaction == null){
